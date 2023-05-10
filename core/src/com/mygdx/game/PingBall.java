@@ -12,7 +12,7 @@ public class PingBall {
 	    private int size;
 	    private int xSpeed;
 	    private int ySpeed;
-	    private Color color = Color.WHITE;
+	    private Color color = Color.BLACK;
 	    private boolean estaQuieto;
 	    
 	    public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto) {
@@ -59,7 +59,7 @@ public class PingBall {
 	            ySpeed = -ySpeed;
 	        }
 	        else{
-	            color = Color.WHITE;
+	            color = Color.BLACK;
 	        }
 	    }
 	    private boolean collidesWith(Paddle pp) {

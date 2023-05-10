@@ -1,13 +1,12 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
-
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -24,6 +23,8 @@ public class BlockBreakerGame extends ApplicationAdapter {
 	private int vidas;
 	private int puntaje;
 	private int nivel;
+	private Texture bloqueTexture;
+	private Texture fondoTexture;
     
 		@Override
 		public void create () {	
@@ -34,6 +35,9 @@ public class BlockBreakerGame extends ApplicationAdapter {
 		    font.getData().setScale(3, 2);
 		    nivel = 1;
 		    crearBloques(2+nivel);
+		    
+		    bloqueTexture = new Texture("ladrillo.png");
+		    fondoTexture = new Texture("fondo (1).jpeg");
 			
 		    shape = new ShapeRenderer();
 		    ball = new PingBall(Gdx.graphics.getWidth()/2-10, 41, 10, 5, 7, true);
@@ -67,9 +71,15 @@ public class BlockBreakerGame extends ApplicationAdapter {
 		
 		@Override
 		public void render () {
-			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); 		
+			
+			Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); 	
+			batch.begin();
+			batch.draw(fondoTexture,0,0,800, 600);
+			batch.end();
+			
 	        shape.begin(ShapeRenderer.ShapeType.Filled);
 	        pad.draw(shape);
+	        
 	        // monitorear inicio del juego
 	        if (ball.estaQuieto()) {
 	        	ball.setXY(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11);

@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class PingBall {
+public class PingBall implements Drawable{
     private int x;
     private int y;
     private int size;
@@ -44,11 +44,7 @@ public class PingBall {
         this.x = x;
         this.y = y;
     }
-
-    public void draw(ShapeRenderer shape) {
-        shape.setColor(color);
-        shape.circle(x, y, size);
-    }
+    
 
     public void update() {
         if (estaQuieto) {
@@ -90,5 +86,10 @@ public class PingBall {
         boolean intersectaX = (block.getX() + block.getWidth() >= x - size) && (block.getX() <= x + size);
         boolean intersectaY = (block.getY() + block.getHeight() >= y - size) && (block.getY() <= y + size);
         return intersectaX && intersectaY;
+    }
+    @Override
+    public void draw(ShapeRenderer shape) {
+        shape.setColor(color);
+        shape.circle(x, y, size);
     }
 }

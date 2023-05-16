@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Random;
 
-public class Block {
+public class Block implements Drawable{
     private int x;
     private int y;
     private int width;
@@ -49,7 +49,7 @@ public class Block {
     public void setDestroyed(boolean destroyed) {
         this.destroyed = destroyed;
     }
-
+    @Override
     public void draw(ShapeRenderer shape) {
         shape.setColor(color);
         shape.rect(x, y, width, height);

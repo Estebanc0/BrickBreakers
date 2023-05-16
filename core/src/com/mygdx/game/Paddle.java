@@ -5,7 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Paddle {
+public class Paddle implements Drawable {
     private int x;
     private int y;
     private int width;
@@ -33,7 +33,7 @@ public class Paddle {
     public int getHeight() {
         return height;
     }
-
+    @Override
     public void draw(ShapeRenderer shape) {
         shape.setColor(Color.BLUE);
         int x2 = x;

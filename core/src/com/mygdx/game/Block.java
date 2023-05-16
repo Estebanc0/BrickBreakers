@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Random;
 
-public class Block implements Drawable{
+public class Block  implements Drawable{
     private int x;
     private int y;
     private int width;

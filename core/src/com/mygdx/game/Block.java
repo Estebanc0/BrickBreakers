@@ -1,29 +1,57 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 import java.util.Random;
 
-import com.badlogic.gdx.graphics.Color;
-
 public class Block {
-    int x,y,width,height;
-    Color cc;
-    boolean destroyed;
-    
+    private int x;
+    private int y;
+    private int width;
+    private int height;
+    private Color color;
+    private boolean destroyed;
+
     public Block(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        destroyed = false;
-        Random r = new Random(x+y);
-        
-       cc = new Color(0.1f+r.nextFloat(1), r.nextFloat(1), r.nextFloat(1), 10);
-  
+        this.destroyed = false;
+        Random r = new Random(x + y);
+        color = new Color(0.1f + r.nextFloat(), r.nextFloat(), r.nextFloat(), 1);
+        }
+    public int getX() {
+        return x;
     }
-    public void draw(ShapeRenderer shape){
-    	shape.setColor(cc);
+
+    public int getY() {
+        return y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public int getHeight() {
+        return height;
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public boolean isDestroyed() {
+        return destroyed;
+    }
+
+    public void setDestroyed(boolean destroyed) {
+        this.destroyed = destroyed;
+    }
+
+    public void draw(ShapeRenderer shape) {
+        shape.setColor(color);
         shape.rect(x, y, width, height);
     }
 }

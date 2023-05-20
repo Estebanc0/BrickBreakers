@@ -5,15 +5,12 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Paddle implements Drawable {
-    private int x;
-    private int y;
+public class Paddle extends GameObject implements Drawable {
     private int width;
     private int height;
 
     public Paddle(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.width = width;
         this.height = height;
     }
@@ -48,4 +45,10 @@ public class Paddle implements Drawable {
         }
         shape.rect(x, y, width, height);
     }
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -10,6 +10,7 @@ public class PingBall extends GameObject implements Drawable {
     private int xSpeed;
     private int ySpeed;
     private boolean estaQuieto;
+	private Color color;
 
     public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto) {
         super(x, y);

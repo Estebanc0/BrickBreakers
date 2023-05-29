@@ -40,6 +40,12 @@ public class Paddle extends GameObject implements Drawable {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             x2 = x + 15;
         }
+        if (Gdx.input.isKeyPressed(Input.Keys.A)) {
+            x2 = x - 15;
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.D)) {
+            x2 = x + 15;
+        }
         if (x2 > 0 && x2 + width < Gdx.graphics.getWidth()) {
             x = x2;
         }

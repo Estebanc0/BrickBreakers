@@ -37,7 +37,7 @@ public class BlockBreakerGame extends ApplicationAdapter {
 		    crearBloques(2+nivel);
 		    
 		    bloqueTexture = new Texture("ladrillo.png");
-		    fondoTexture = new Texture("fondo (1).jpeg");
+		    fondoTexture = new Texture("fondo.png");
 			
 		    shape = new ShapeRenderer();
 		    ball = new PingBall(Gdx.graphics.getWidth()/2-10, 41, 10, 5, 7, true);

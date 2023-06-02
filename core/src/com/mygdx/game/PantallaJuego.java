@@ -102,10 +102,10 @@ public class PantallaJuego implements Screen{
         }
         // verificar game over
         if (vidas<=0) {
-        	vidas = 3;
-        	nivel = 1;
-        	puntaje=0;
-        	crearBloques(2+nivel);
+        	Screen ss = new PantallaGameOver(game,color);
+			ss.resize(1200, 800);
+			game.setScreen(ss);
+			dispose();
         	//ball = new PingBall(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11, 10, 5, 7, true);	        	
         }
         // verificar si el nivel se terminó

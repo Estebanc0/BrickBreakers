@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -26,8 +27,10 @@ public class PantallaJuego implements Screen{
 	private int nivel;
 	private Texture bloqueTexture;
 	private Texture fondoTexture;
-	public PantallaJuego(BlockBreakerGame game) {
+	private Color color;
+	public PantallaJuego(BlockBreakerGame game,Color c) {
 		this.game=game;
+		color=c;
 		camera = new OrthographicCamera();
 	    camera.setToOrtho(false, 800, 480);
 	    batch = new SpriteBatch();
@@ -40,7 +43,7 @@ public class PantallaJuego implements Screen{
 	    fondoTexture = new Texture("fondo.png");
 		
 	    shape = new ShapeRenderer();
-	    ball = new PingBall(Gdx.graphics.getWidth()/2-10, 41, 10, 5, 7, true);
+	    ball = new PingBall(Gdx.graphics.getWidth()/2-10, 41, 10, 5, 7, true,c);
 	    pad = new Paddle(Gdx.graphics.getWidth()/2-50,40,100,10);
 	    vidas = 3;
 	    puntaje = 0;    
@@ -95,7 +98,7 @@ public class PantallaJuego implements Screen{
         if (ball.getY()<0) {
         	vidas--;
         	//nivel = 1;
-        	ball = new PingBall(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11, 10, 5, 7, true);
+        	ball = new PingBall(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11, 10, 5, 7, true,color);
         }
         // verificar game over
         if (vidas<=0) {
@@ -109,7 +112,7 @@ public class PantallaJuego implements Screen{
         if (blocks.size()==0) {
         	nivel++;
         	crearBloques(2+nivel);
-        	ball = new PingBall(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11, 10, 5, 7, true);
+        	ball = new PingBall(pad.getX()+pad.getWidth()/2-5, pad.getY()+pad.getHeight()+11, 10, 5, 7, true,color);
         }    	
         //dibujar bloques
         for (Block b : blocks) {        	

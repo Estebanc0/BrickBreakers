@@ -12,9 +12,9 @@ public class PingBall extends GameObject implements Drawable {
     private boolean estaQuieto;
 	private Color color;
 
-    public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto) {
+    public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto,Color c) {
         super(x, y);
-        this.color=Color.BLACK;
+        this.color=c;
         this.size = size;
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
@@ -55,11 +55,8 @@ public class PingBall extends GameObject implements Drawable {
 
     public void checkCollision(Paddle paddle) {
         if (collidesWith(paddle)) {
-            color = Color.GREEN;
-            ySpeed = -ySpeed;
-        } else {
-            color = Color.BLACK;
-        }
+          
+            ySpeed = -ySpeed;}
     }
 
     private boolean collidesWith(Paddle pp) {

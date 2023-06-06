@@ -3,8 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-import java.util.Random;
-
 public class Block  implements Drawable{
     private int x;
     private int y;
@@ -19,8 +17,8 @@ public class Block  implements Drawable{
         this.width = width;
         this.height = height;
         this.destroyed = false;
-        Random r = new Random(x + y);
-        color = new Color(0.1f + r.nextFloat(), r.nextFloat(), r.nextFloat(), 1);
+       
+        color =Color.FIREBRICK;
         }
     public int getX() {
         return x;

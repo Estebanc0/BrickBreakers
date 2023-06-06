@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 
@@ -13,9 +14,11 @@ public class PantallaGameOver implements Screen {
 	private BlockBreakerGame game;
 	private OrthographicCamera camera;
 	private Color color;
+	private Texture fondo;
 	public PantallaGameOver(BlockBreakerGame game,Color c) {
 		this.game = game;
         color=c;
+        fondo=new Texture("gameOver.jpg");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1200, 800);
 	}
@@ -26,12 +29,10 @@ public class PantallaGameOver implements Screen {
 
 		camera.update();
 		game.getBatch().setProjectionMatrix(camera.combined);
-
 		game.getBatch().begin();
-		game.getFont().draw(game.getBatch(), "Game Over !!! ", 400, 500,400,1,true);
-		game.getFont().draw(game.getBatch(), "Presiona enter para reiniciar o escape para volver al menu principal", 200, 400);
-	
+		game.getBatch().draw(fondo, 0, 0, 1200,800);
 		game.getBatch().end();
+		
 
 		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
 			Screen ss = new PantallaJuego(game,color);

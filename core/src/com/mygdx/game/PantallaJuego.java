@@ -13,8 +13,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class PantallaJuego implements Screen{
-	private BlockBreakerGame game;
+public class PantallaJuego extends BaseScreen{
 	private OrthographicCamera camera;
 	private SpriteBatch batch;	   
 	private BitmapFont font;
@@ -27,10 +26,9 @@ public class PantallaJuego implements Screen{
 	private int nivel;
 	private Texture bloqueTexture;
 	private Texture fondoTexture;
-	private Color color;
+	
 	public PantallaJuego(BlockBreakerGame game,Color c) {
-		this.game=game;
-		color=c;
+		super(game,c);
 		camera = new OrthographicCamera();
 	    camera.setToOrtho(false, 800, 480);
 	    batch = new SpriteBatch();

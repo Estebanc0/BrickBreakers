@@ -9,15 +9,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 
-public class PantallaGameOver implements Screen {
-
-	private BlockBreakerGame game;
+public class PantallaGameOver extends BaseScreen{
 	private OrthographicCamera camera;
-	private Color color;
 	private Texture fondo;
 	public PantallaGameOver(BlockBreakerGame game,Color c) {
-		this.game = game;
-        color=c;
+		super(game,c);
         fondo=new Texture("gameOver.jpg");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1200, 800);

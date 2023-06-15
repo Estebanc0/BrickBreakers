@@ -37,7 +37,7 @@ public class PantallaGameOver extends BaseScreen{
 			dispose();
 		}
 		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-			Screen ss = new PantallaMenu(game);
+			Screen ss = PantallaMenu.getInstance(game);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();

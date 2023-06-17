@@ -21,27 +21,7 @@ public class PantallaGameOver extends BaseScreen{
 
 	@Override
 	public void render(float delta) {
-		ScreenUtils.clear(0, 0, 0.2f, 1);
-
-		camera.update();
-		game.getBatch().setProjectionMatrix(camera.combined);
-		game.getBatch().begin();
-		game.getBatch().draw(fondo, 0, 0, 1200,800);
-		game.getBatch().end();
-		
-
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-			Screen ss = new PantallaJuego(game,color);
-			ss.resize(1200, 800);
-			game.setScreen(ss);
-			dispose();
-		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-			Screen ss = PantallaMenu.getInstance(game);
-			ss.resize(1200, 800);
-			game.setScreen(ss);
-			dispose();
-		}
+		specificRender(delta);
 	}
  
 	
@@ -79,6 +59,33 @@ public class PantallaGameOver extends BaseScreen{
 	public void dispose() {
 		// TODO Auto-generated method stub
 		
+	}
+
+	
+	@Override
+	protected void specificRender(float delta) {
+		// TODO Auto-generated method stub
+		ScreenUtils.clear(0, 0, 0.2f, 1);
+
+		camera.update();
+		game.getBatch().setProjectionMatrix(camera.combined);
+		game.getBatch().begin();
+		game.getBatch().draw(fondo, 0, 0, 1200,800);
+		game.getBatch().end();
+		
+
+		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
+			Screen ss = new PantallaJuego(game,color);
+			ss.resize(1200, 800);
+			game.setScreen(ss);
+			dispose();
+		}
+		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+			Screen ss = PantallaMenu.getInstance(game);
+			ss.resize(1200, 800);
+			game.setScreen(ss);
+			dispose();
+		}
 	}
    
 }

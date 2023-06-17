@@ -79,6 +79,41 @@ public class PantallaJuego extends BaseScreen{
 
 	@Override
 	public void render(float delta) {
+		specificRender(delta);
+	}
+
+	@Override
+	public void resize(int width, int height) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void pause() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void resume() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void hide() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void dispose() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	@Override
+	protected void specificRender(float delta) {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT); 	
 		batch.begin();
 		batch.draw(fondoTexture,0,0,800, 600);
@@ -133,35 +168,6 @@ public class PantallaJuego extends BaseScreen{
         shape.end();
         dibujaTextos();
 		
-	}
-
-	@Override
-	public void resize(int width, int height) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void pause() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void resume() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void hide() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void dispose() {
-		// TODO Auto-generated method stub
 		
 	}
 	

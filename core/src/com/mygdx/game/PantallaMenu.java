@@ -11,7 +11,7 @@ public class PantallaMenu implements Screen {
 	private BlockBreakerGame game;
 	private OrthographicCamera camera;
 	private Texture fondo;
-	private static PantallaMenu instance;
+	private static volatile PantallaMenu instance;
 	private PantallaMenu(BlockBreakerGame game) {
 		this.game = game;
         fondo=new Texture("1.png");
@@ -19,8 +19,12 @@ public class PantallaMenu implements Screen {
 		camera.setToOrtho(false, 1200, 800);
 	}
 	public static synchronized PantallaMenu getInstance(BlockBreakerGame game) {
-        if (instance == null) {
-            instance = new PantallaMenu(game);
+		if (instance == null) {
+            synchronized (PantallaMenu.class) {
+                if (instance == null) {
+                    instance = new PantallaMenu(game);
+                }
+            }
         }
         return instance;
     }

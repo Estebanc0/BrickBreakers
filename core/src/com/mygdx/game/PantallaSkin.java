@@ -30,37 +30,37 @@ public class PantallaSkin implements Screen {
 		game.getBatch().begin();
 		game.getBatch().draw(fondo, 0, 0, 1200,800);
 		game.getBatch().end();
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_1)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_1)) {
 			Screen ss = new PantallaJuego(game,Color.GREEN);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
 		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_2)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_2)) {
 			Screen ss = new PantallaJuego(game,Color.RED);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
 		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_3)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_3)) {
 			Screen ss = new PantallaJuego(game,Color.BLUE);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
 		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_4)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_4)) {
 			Screen ss = new PantallaJuego(game,Color.BLACK);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
 		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_5)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_5)) {
 			Screen ss = new PantallaJuego(game,Color.PURPLE);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();
 		}
-		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.NUM_6)) {
+		if (Gdx.input.isKeyJustPressed(Input.Keys.NUM_6)) {
 			Screen ss = new PantallaJuego(game,Color.YELLOW);
 			ss.resize(1200, 800);
 			game.setScreen(ss);

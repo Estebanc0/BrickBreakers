@@ -1,6 +1,8 @@
 package com.mygdx.game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -26,6 +28,21 @@ public class PantallaJuego extends BaseScreen{
 	private int nivel;
 	private Texture bloqueTexture;
 	private Texture fondoTexture;
+	//poderes
+	private ArrayList<PowerUp> powerUps = new ArrayList<>();
+	private boolean hasActivePowerUp = false;
+	
+	private void applyPowerUpToPaddle(PowerUp powerup) {
+		//Random random = new Random();
+		int power = 0; //random.nextInt(1);
+		
+		//xtra Life
+		if (power == 0) {
+			vidas++;
+		}
+		powerup.setActive(false);
+		
+	}
 	
 	public PantallaJuego(BlockBreakerGame game,Color c) {
 		super(game,c);
@@ -118,6 +135,7 @@ public class PantallaJuego extends BaseScreen{
 		batch.begin();
 		batch.draw(fondoTexture,0,0,800, 600);
 		batch.end();
+		int cont= 0;
 		
         shape.begin(ShapeRenderer.ShapeType.Filled);
         pad.draw(shape);
@@ -151,15 +169,33 @@ public class PantallaJuego extends BaseScreen{
         for (Block b : blocks) {        	
             b.draw(shape);
             ball.checkCollision(b);
+           
         }
         // actualizar estado de los bloques 
         for (int i = 0; i < blocks.size(); i++) {
             Block b = blocks.get(i);
             if (b.isDestroyed()) {
+            	if (puntaje % 5 == 0) {
+            		PowerUp powerUp = new PowerUp(b.getX() + b.getWidth() / 2, b.getY(), 10, 5, Color.RED);
+                    powerUp.setActive(true);
+                    powerUps.add(powerUp);
+                    b.setDestroyed(true);
+            	}
+            	
+                
             	puntaje++;
                 blocks.remove(b);
                 i--; //para no saltarse 1 tras eliminar del arraylist
             }
+        }
+        
+        for (PowerUp powerUp : powerUps) {
+            powerUp.update();
+            if (powerUp.isActive() && powerUp.collidesWith(pad)) {
+                applyPowerUpToPaddle(powerUp);
+                powerUp.setActive(false);
+            }
+            powerUp.draw(shape);
         }
         
         ball.checkCollision(pad);
@@ -170,6 +206,7 @@ public class PantallaJuego extends BaseScreen{
 		
 		
 	}
+  
 	
 
 }

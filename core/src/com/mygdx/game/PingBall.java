@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import java.util.Random;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
@@ -11,6 +12,7 @@ public class PingBall extends GameObject implements Drawable {
     private int ySpeed;
     private boolean estaQuieto;
 	private Color color;
+	private Random random;
 
     public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto,Color c) {
         super(x, y);
@@ -59,7 +61,7 @@ public class PingBall extends GameObject implements Drawable {
             ySpeed = -ySpeed;}
     }
 
-    private boolean collidesWith(Paddle pp) {
+    boolean collidesWith(Paddle pp) {
         boolean intersectaX = (pp.getX() + pp.getWidth() >= x - size) && (pp.getX() <= x + size);
         boolean intersectaY = (pp.getY() + pp.getHeight() >= y - size) && (pp.getY() <= y + size);
         return intersectaX && intersectaY;
@@ -71,8 +73,10 @@ public class PingBall extends GameObject implements Drawable {
             block.setDestroyed(true);
         }
     }
+    
+    
 
-    private boolean collidesWith(Block bb) {
+    boolean collidesWith(Block bb) {
         boolean intersectaX = (bb.getX() + bb.getWidth() >= x - size) && (bb.getX() <= x + size);
         boolean intersectaY = (bb.getY() + bb.getHeight() >= y - size) && (bb.getY() <= y + size);
         return intersectaX && intersectaY;

@@ -8,7 +8,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 public class Paddle extends GameObject implements Drawable {
     private int width;
     private int height;
-
+    
     public Paddle(int x, int y, int width, int height) {
         super(x,y);
         this.width = width;

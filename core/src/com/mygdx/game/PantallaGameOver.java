@@ -75,7 +75,7 @@ public class PantallaGameOver extends BaseScreen{
 		
 
 		if (Gdx.input.isTouched() || Gdx.input.isKeyJustPressed(Input.Keys.ENTER)) {
-			Screen ss = new PantallaJuego(game,color);
+			Screen ss = new PantallaJuego(game,this.color);
 			ss.resize(1200, 800);
 			game.setScreen(ss);
 			dispose();

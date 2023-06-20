@@ -14,7 +14,7 @@ public class PantallaMenu implements Screen {
 	private static volatile PantallaMenu instance;
 	private PantallaMenu(BlockBreakerGame game) {
 		this.game = game;
-        fondo=new Texture("1.png");
+        fondo=new Texture("fondoo (2).png");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1200, 800);
 	}

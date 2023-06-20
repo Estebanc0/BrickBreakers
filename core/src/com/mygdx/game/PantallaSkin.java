@@ -14,7 +14,7 @@ public class PantallaSkin implements Screen {
 	private Texture fondo;
 	public PantallaSkin(BlockBreakerGame game) {
 		this.game = game;
-        fondo=new Texture("Skin.jpg");
+        fondo=new Texture("skin1.png");
 		camera = new OrthographicCamera();
 		camera.setToOrtho(false, 1200, 800);
 	}

@@ -51,4 +51,8 @@ public class PowerUp extends GameObject implements Drawable {
         boolean intersectaY = (pp.getY() + pp.getHeight() >= y - size) && (pp.getY() <= y + size);
         return intersectaX && intersectaY;
     }
+    
+    public static PowerUpBuilder builder() {
+        return new PowerUpBuilder();
+    }
 }

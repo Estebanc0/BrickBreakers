@@ -176,7 +176,13 @@ public class PantallaJuego extends BaseScreen{
             Block b = blocks.get(i);
             if (b.isDestroyed()) {
             	if (puntaje % 5 == 0) {
-            		PowerUp powerUp = new PowerUp(b.getX() + b.getWidth() / 2, b.getY(), 10, 5, Color.RED);
+            		PowerUp powerUp =PowerUp.builder()
+            			    .setPosition(b.getX(),b.getY())
+            			    .setSize(10)
+            			    .setYSpeed(5)
+            			    .setColor(Color.RED)
+            			    .build();
+            				// new PowerUp(b.getX() + b.getWidth() / 2, b.getY(), 10, 5, Color.RED);
                     powerUp.setActive(true);
                     powerUps.add(powerUp);
                     b.setDestroyed(true);

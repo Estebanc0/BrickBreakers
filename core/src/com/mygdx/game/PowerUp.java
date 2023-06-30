@@ -9,12 +9,12 @@ public class PowerUp extends GameObject implements Drawable {
     private boolean active;
     private Color color;
     
-    public PowerUp(int x, int y, int size, int ySpeed, Color color) {
-        super(x, y);
-        this.size = size;
-        this.ySpeed = ySpeed;
-        this.active = false;
-        this.color = color;
+    public PowerUp(PowerUpBuilder builder) {
+        super(builder.getX(), builder.getY());
+        this.size = builder.getSize();
+        this.ySpeed = builder.getySpeed();
+        this.active = builder.isActive();
+        this.color = builder.getColor();
     }
 
     public void setActive(boolean active) {

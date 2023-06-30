@@ -10,7 +10,29 @@ public class PowerUpBuilder {
     private boolean active=false;
     private Color color;
     
-    public PowerUpBuilder setPosition(int x, int y) {
+    public int getX() {
+		return x;
+	}
+	public int getY() {
+		return y;
+	}
+	public int getySpeed() {
+		return ySpeed;
+	}
+	public int getSize() {
+		return size;
+	}
+	public Color getColor() {
+		return color;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+	public void setActive(boolean active) {
+		this.active = active;
+	}
+	public PowerUpBuilder setPosition(int x, int y) {
         this.x = x;
         this.y = y;
         return this;
@@ -34,6 +56,6 @@ public class PowerUpBuilder {
     }
     
     public PowerUp build() {
-        return new PowerUp(x, y, size, ySpeed, color);
+        return new PowerUp(this);
     }
 }

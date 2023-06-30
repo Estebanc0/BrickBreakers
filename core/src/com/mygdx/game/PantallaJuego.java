@@ -33,13 +33,26 @@ public class PantallaJuego extends BaseScreen{
 	private boolean hasActivePowerUp = false;
 	
 	private void applyPowerUpToPaddle(PowerUp powerup) {
-		//Random random = new Random();
-		int power = 0; //random.nextInt(1);
-		
+		Random random = new Random();
+		int power = random.nextInt(5)+1;
+		System.out.println(power);
 		//xtra Life
-		if (power == 0) {
+		if (power == 1) {
 			vidas++;
 		}
+		//large Pad
+		if (power == 2) {
+			pad.setLongerWidth();
+		}
+		//bola lenta
+		if (power == 3) {
+			ball.ChangeSpeedXY(-10);
+		}
+		//barra rapida
+		if (power == 4) {
+			pad.AumentaSpeed(3);
+		}
+		
 		powerup.setActive(false);
 		
 	}
@@ -59,7 +72,7 @@ public class PantallaJuego extends BaseScreen{
 		
 	    shape = new ShapeRenderer();
 	    ball = new PingBall(Gdx.graphics.getWidth()/2-10, 41, 10, 5, 7, true,c);
-	    pad = new Paddle(Gdx.graphics.getWidth()/2-50,40,100,10);
+	    pad = new Paddle(Gdx.graphics.getWidth()/2-50,40,100,10,15);
 	    vidas = 3;
 	    puntaje = 0;    
 	}

@@ -22,7 +22,10 @@ public class PingBall extends GameObject implements Drawable {
         this.ySpeed = ySpeed;
         estaQuieto = iniciaQuieto;
     }
-
+    public void ChangeSpeedXY(int a) {
+    	this.xSpeed = xSpeed + a;
+        this.ySpeed = ySpeed + a;
+    }
     public boolean estaQuieto() {
         return estaQuieto;
     }

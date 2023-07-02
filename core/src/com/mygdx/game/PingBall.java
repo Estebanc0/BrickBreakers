@@ -13,6 +13,7 @@ public class PingBall extends GameObject implements Drawable {
     private boolean estaQuieto;
 	private Color color;
 	private Random random;
+	private BallColisionS strategy;
 
     public PingBall(int x, int y, int size, int xSpeed, int ySpeed, boolean iniciaQuieto,Color c) {
         super(x, y);
@@ -21,6 +22,9 @@ public class PingBall extends GameObject implements Drawable {
         this.xSpeed = xSpeed;
         this.ySpeed = ySpeed;
         estaQuieto = iniciaQuieto;
+    }
+    public void setStrategy(BallColisionS a) {
+    	this.strategy=a;
     }
     public void ChangeSpeedXY(int a) {
     	this.xSpeed = xSpeed + a;
@@ -58,10 +62,8 @@ public class PingBall extends GameObject implements Drawable {
         shape.circle(x, y, size);
     }
 
-    public void checkCollision(Paddle paddle) {
-        if (collidesWith(paddle)) {
-          
-            ySpeed = -ySpeed;}
+    public void checkCollision(PingBall a, GameObject b) {
+        this.strategy.colision(a, b);
     }
 
     boolean collidesWith(Paddle pp) {
@@ -69,15 +71,6 @@ public class PingBall extends GameObject implements Drawable {
         boolean intersectaY = (pp.getY() + pp.getHeight() >= y - size) && (pp.getY() <= y + size);
         return intersectaX && intersectaY;
     }
-
-    public void checkCollision(Block block) {
-        if (collidesWith(block)) {
-            ySpeed = -ySpeed;
-            block.setDestroyed(true);
-        }
-    }
-    
-    
 
     boolean collidesWith(Block bb) {
         boolean intersectaX = (bb.getX() + bb.getWidth() >= x - size) && (bb.getX() <= x + size);
@@ -89,4 +82,11 @@ public class PingBall extends GameObject implements Drawable {
 		
 		return this.y;
 	}
+	public int getySpeed() {
+		return ySpeed;
+	}
+	public void setySpeed(int ySpeed) {
+		this.ySpeed = ySpeed;
+	}
+	
 }

@@ -3,17 +3,15 @@ package com.mygdx.game;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
-public class Block  implements Drawable{
-    private int x;
-    private int y;
+public class Block extends GameObject implements Drawable{
+    
     private int width;
     private int height;
     private Color color;
     private boolean destroyed;
 
     public Block(int x, int y, int width, int height) {
-        this.x = x;
-        this.y = y;
+        super(x,y);
         this.width = width;
         this.height = height;
         this.destroyed = false;
@@ -52,4 +50,9 @@ public class Block  implements Drawable{
         shape.setColor(color);
         shape.rect(x, y, width, height);
     }
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
 }

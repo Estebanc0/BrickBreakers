@@ -31,7 +31,6 @@ public class PantallaJuego extends BaseScreen{
 	//poderes
 	private ArrayList<PowerUp> powerUps = new ArrayList<>();
 	private boolean hasActivePowerUp = false;
-	
 	private void applyPowerUpToPaddle(PowerUp powerup) {
 		Random random = new Random();
 		int power = random.nextInt(5)+1;
@@ -181,7 +180,8 @@ public class PantallaJuego extends BaseScreen{
         //dibujar bloques
         for (Block b : blocks) {        	
             b.draw(shape);
-            ball.checkCollision(b);
+            ball.setStrategy(new BlockC());
+            ball.checkCollision(ball,b);
            
         }
         // actualizar estado de los bloques 
@@ -216,8 +216,8 @@ public class PantallaJuego extends BaseScreen{
             }
             powerUp.draw(shape);
         }
-        
-        ball.checkCollision(pad);
+        ball.setStrategy(new PaddleC());
+        ball.checkCollision(ball,pad);
         ball.draw(shape);
         
         shape.end();

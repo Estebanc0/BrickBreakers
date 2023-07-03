@@ -34,7 +34,6 @@ public class PantallaJuego extends BaseScreen{
 	private void applyPowerUpToPaddle(PowerUp powerup) {
 		Random random = new Random();
 		int power = random.nextInt(5)+1;
-		System.out.println(power);
 		//xtra Life
 		if (power == 1) {
 			vidas++;
